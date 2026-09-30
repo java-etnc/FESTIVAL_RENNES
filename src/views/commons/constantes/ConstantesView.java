@@ -25,12 +25,15 @@ public final class ConstantesView {
     public static final String FORMAT_DATE = "dd/MM/yyyy";
 
     // ---------- BORNES DE SAISIE ----------
+    public static final int BORNE_MIN_SCENE = 1;
+    public static final int BORNE_MAX_SCENE = 10;
 
     // ---------- MESSAGES ----------
 
     public static final String ERREUR_DATE_FUTURE = "La date doit etre posterieure a aujourd'hui.";
     public static final String ERREUR_DATE_PASSEE = "La date ne peut pas etre dans le futur.";
     public static final String ERREUR_AGE_MINIMUM = "Age minimum requis : ";
+    public static final String ERREUR_NOM_SCENE_DEJA_UTILISE = "Nom de scène déjà utilisé.";
 
     public static final String FIN_PROGRAMME = "Fin du programme, au revoir !";
     public static final String CHOIX_INVALIDE = "Choix invalide.";

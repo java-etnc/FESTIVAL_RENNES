@@ -48,7 +48,13 @@ public class Presenter {
     private void creerScene(){
         // Saisie de l'utilisateur provenant de la view
         Scene saisirScene = facadeView.saisirScene();
+        if(facadeModel.getScenes().contains(saisirScene)){
+            // La méthode contains utilise.equals pour comparer du coup ça compare par nom
+            facadeView.afficherErreur(ConstantesView.ERREUR_NOM_SCENE_DEJA_UTILISE);
+            return;
+        }
         // Enregistrer la scène dans le modèle.
+        facadeModel.enregistrerScene(saisirScene);
     }
 
     private void initData() {

@@ -57,9 +57,9 @@ public class FacadeViewConsole implements IFacadeView {
 
     @Override
     public Scene saisirScene() {
-        String nomScene = lireTexte("Entrez ");
+        String nomScene = lireTexte("Entrez le nom de la scène : ");
         TypeScene typeScene = ViewUtils.choixEnumMenu("Choisir scène",TypeScene.class);
-        int capacite = lireEntier("Entrez la capacité de la scène : ",1,1000);
+        int capacite = lireEntier("Entrez la capacité de la scène : ",ConstantesView.BORNE_MIN_SCENE,ConstantesView.BORNE_MAX_SCENE);
         return Factory.createScene(nomScene,typeScene,capacite);
     }
 

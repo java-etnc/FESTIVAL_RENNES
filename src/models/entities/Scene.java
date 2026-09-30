@@ -18,7 +18,7 @@ public class Scene extends AbstractEntity {
     // Constructeur
     protected Scene() {}
 
-    protected String getNom() {
+    public String getNom() {
         return nom;
     }
 
@@ -34,7 +34,7 @@ public class Scene extends AbstractEntity {
         this.typeScene = typeScene;
     }
 
-    protected int getCapacite() {
+    public int getCapacite() {
         return capacite;
     }
 
