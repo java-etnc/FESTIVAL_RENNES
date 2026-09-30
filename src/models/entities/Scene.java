@@ -9,13 +9,14 @@ import java.util.Objects;
 
 public class Scene extends AbstractEntity {
 
+    // Attributs
     private String nom;
     private TypeScene typeScene;
     private int capacite;
-    private List<Artiste> artistes = new ArrayList<>();
+    private List<Artiste> programmation = new ArrayList<>();
 
-    protected Scene() {
-    }
+    // Constructeur
+    protected Scene() {}
 
     protected String getNom() {
         return nom;
@@ -41,13 +42,17 @@ public class Scene extends AbstractEntity {
         this.capacite = capacite;
     }
 
-    public List<Artiste> getArtistes() {
-        return Collections.unmodifiableList(artistes);
+    public List<Artiste> getProgrammation() {
+        return Collections.unmodifiableList(programmation);
     }
 
-    protected void setArtistes(List<Artiste> artistes) {
-        this.artistes = artistes;
+    public void ajouterArtiste(Artiste artiste) {
+        this.programmation.add(artiste);
     }
+    public void supprimerArtiste(Artiste artiste){
+        this.programmation.remove(artiste);
+    }
+
 
     @Override
     public boolean equals(Object o) {

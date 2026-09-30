@@ -1,13 +1,12 @@
 package models.entities;
 
 import java.time.LocalDate;
-import java.util.Locale;
 import java.util.Objects;
 
 public abstract class Artiste extends AbstractEntity {
     private String nom;
     private double cachet;
-    private LocalDate date;
+    private LocalDate dateProgrammation;
 
     protected Artiste(){}
     public abstract String getDescription();
@@ -28,17 +27,19 @@ public abstract class Artiste extends AbstractEntity {
         this.cachet = cachet;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDate getDateProgrammation() {
+        return dateProgrammation;
     }
 
-    protected void setDate(LocalDate date) {
-        this.date = date;
+    public void setDateProgrammation(LocalDate dateProgrammation) {
+        this.dateProgrammation = dateProgrammation;
     }
+
+
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || !(o instanceof Artiste)) return false;
         Artiste artiste = (Artiste) o;
         return Objects.equals(nom, artiste.nom);
     }
@@ -46,5 +47,10 @@ public abstract class Artiste extends AbstractEntity {
     @Override
     public int hashCode() {
         return Objects.hashCode(nom);
+    }
+
+    @Override
+    public String toString() {
+        return getDescription();
     }
 }

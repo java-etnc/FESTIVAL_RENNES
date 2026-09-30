@@ -1,10 +1,15 @@
 package presenter;
 
+import models.entities.*;
 import models.facade.FacadeModel;
 import models.facade.IFacadeModel;
+import models.references.Instrument;
+import models.references.TypeScene;
 import views.commons.constantes.ConstantesView;
 import views.facade.FacadeViewConsole;
 import views.facade.IFacadeView;
+
+import java.time.LocalDate;
 
 /*
  * Un cas de menu = une méthode privée. Ni System.out, ni question posée, ni "new" d'entité ici.
@@ -23,7 +28,7 @@ public class Presenter {
             choix = facadeView.lireChoixMenuPrincipal();
             switch (choix) {
                 case 1:
-                    facadeView.afficherMessage("TODO cas 1");
+                    creerScene();
                     break;
                 case 2:
                     facadeView.afficherMessage("TODO cas 2");
@@ -40,8 +45,30 @@ public class Presenter {
         } while (choix != 0);
     }
 
-    /** Jeu de données de test : penser aux setters de TOUS les attributs (prix !). */
-    private void initData() {
+    private void creerScene(){
+        // Saisie de l'utilisateur provenant de la view
+        Scene saisirScene = facadeView.saisirScene();
+        // Enregistrer la scène dans le modèle.
+    }
 
+    private void initData() {
+        // Les scènes
+        Scene scene1 = Factory.createScene("Grande scène", TypeScene.PLEIN_AIR,8);
+        Scene scene2 = Factory.createScene("Le Jardin", TypeScene.PLEIN_AIR,4);
+        Scene scene3 = Factory.createScene("La Cabane", TypeScene.CHAPITEAU,3);
+        Scene scene4 = Factory.createScene("Le Club", TypeScene.SALLE,2);
+        // Les artistes
+        Soliste soliste1 = Factory.createSoliste("Lena Morel",1200, Instrument.GUITARE);
+        Soliste soliste2 = Factory.createSoliste("Tom Riva",900, Instrument.BATTERIE);
+        Soliste soliste3 = Factory.createSoliste("Iris Kane",2500, Instrument.VOIX);
+        Soliste soliste4 = Factory.createSoliste("Malo Brun",800, Instrument.BASSE);
+        DJ dj1 = Factory.createDJ("DJ Nova",3000,90);
+        DJ dj2 = Factory.createDJ("Kosmik",1500,45);
+        Groupe groupe = Factory.createGroupe("The Wolves",6000, LocalDate.of(2015,03,12));
+        groupe.ajouterMembre(soliste1);
+        groupe.ajouterMembre(soliste2);
+        // Programmation
+        scene1.ajouterArtiste(groupe);
+        scene3.ajouterArtiste(soliste3);
     }
 }

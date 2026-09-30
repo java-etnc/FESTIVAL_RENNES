@@ -7,8 +7,12 @@ import java.util.List;
 
 public class Groupe extends Artiste{
 
+    // Attributs
     private LocalDate dateCreationGroupe;
     private List<Soliste> membres = new ArrayList<>();
+
+    // Constructeur
+    protected Groupe(){}
 
     public LocalDate getDateCreationGroupe() {
         return dateCreationGroupe;
@@ -19,9 +23,13 @@ public class Groupe extends Artiste{
     public List<Soliste> getMembres() {
         return Collections.unmodifiableList(membres);
     }
-    protected void setMembres(List<Soliste> membres) {
-        this.membres = membres;
+    public void ajouterMembre(Soliste soliste){
+        this.membres.add(soliste);
     }
+    public void retirerMembre(Soliste soliste){
+        this.membres.remove(soliste);
+    }
+
 
     @Override
     public String getDescription() {

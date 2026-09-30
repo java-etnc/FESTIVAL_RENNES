@@ -1,5 +1,7 @@
 package views.facade;
 
+import models.entities.Scene;
+
 import java.util.List;
 
 /*
@@ -17,5 +19,5 @@ public interface IFacadeView {
     <E> void afficherListe(String titre, List<E> liste);
 
     // ---------- TES MÉTHODES PAR SOUS-MENU ----------
-
+    Scene saisirScene();
 }

@@ -1,10 +1,14 @@
 package views.facade;
 
+import models.entities.Factory;
+import models.entities.Scene;
+import models.references.TypeScene;
 import views.commons.constantes.ConstantesView;
 import views.commons.utils.AffichageConsole;
 import views.commons.utils.LectureConsole;
 import views.commons.utils.ViewUtils;
 
+import javax.swing.text.View;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
@@ -50,6 +54,14 @@ public class FacadeViewConsole implements IFacadeView {
     }
 
     // ---------- TES MÉTHODES PAR SOUS-MENU ----------
+
+    @Override
+    public Scene saisirScene() {
+        String nomScene = lireTexte("Entrez ");
+        TypeScene typeScene = ViewUtils.choixEnumMenu("Choisir scène",TypeScene.class);
+        int capacite = lireEntier("Entrez la capacité de la scène : ",1,1000);
+        return Factory.createScene(nomScene,typeScene,capacite);
+    }
 
 
     // ---------- BOÎTE À OUTILS PRIVÉE (grisée tant qu'elle ne sert pas) ----------
